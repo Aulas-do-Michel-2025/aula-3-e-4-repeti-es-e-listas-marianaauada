@@ -41,20 +41,26 @@ lista_de_organismos = [[50, 50, 50], [125, 99, 12], [19, 91, 42], [40, 189, 0], 
 
 # Fazer a partir daqui
 
+lista_de_organismos = [[50, 50, 50], [125, 99, 12], [19, 91, 42], [40, 189, 0], [1, 0, 0], [100, 100, 70], [99, 12, 12]]
+
 maior_media = 0
-maior_posicao = 0
+posicao_maior = 0
+i = 0
 
-for i in range(len(lista_de_organismos)):
-    organismo = lista_de_organismos[i]
+while i < len(lista_de_organismos):
     soma = 0
+    posicao = 0
 
-for leitura in organismo:
-    soma += leitura
+    while posicao < len(lista_de_organismos[i]):
+        soma += lista_de_organismos[i][posicao]
+        posicao += 1
 
-media = soma / len(organismo)
+    media = soma / len(lista_de_organismos[i])
 
-if media > maior_media:
-    maior_media = media
-    maior_posicao = 1
+    if media > maior_media:
+        maior_media = media
+        posicao_maior = i
 
-print(f"O organismo com maior média é o da posição {maior_posicao} da lista")
+    i += 1
+
+print("O organismo com maior média é o da posição", posicao_maior, "da lista.")
